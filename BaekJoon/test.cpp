@@ -2,6 +2,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 int main(){
 	int a[10][10] = {0};
 	
@@ -12,5 +13,12 @@ int main(){
 			cout << a[i][j] << " ";
 		}
 		cout << "\n";
+=======
+
+int main()
+{
+	if(1 & 1){
+		cout << "hi";
+>>>>>>> d937b5c211aa87d45d6a38c127d72ae6e42f0e0e
 	}
 }
