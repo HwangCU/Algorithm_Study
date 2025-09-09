@@ -1,24 +1,23 @@
 #include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
 
 using namespace std;
 
-<<<<<<< HEAD
-int main(){
-	int a[10][10] = {0};
-	
-	a[0][1] = 1;
-	
-	for(int i=0; i<10; i++){
-		for(int j=0; j<10; j++){
-			cout << a[i][j] << " ";
-		}
-		cout << "\n";
-=======
+vector<int> v[10];
 
-int main()
-{
-	if(1 & 1){
-		cout << "hi";
->>>>>>> d937b5c211aa87d45d6a38c127d72ae6e42f0e0e
+int main(){
+	v[0].push_back(0);
+	v[1].push_back(1);
+	
+	for(auto a:v){
+		for(auto b:a) cout << b;
 	}
+	
+
+	for(auto a:v){
+		for(auto b:a) cout << b;
+	}
+	return 0;
 }
