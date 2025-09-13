@@ -1,33 +1,38 @@
 #include <iostream>
 #include <algorithm>
+#include <queue>
 
 using namespace std;
-
-int n, k;
-int ret = 100001;
-int method = 0;
-bool visited[100001];
-void dfs(int x, int time){
-	cout << x << " ";
-	visited[x] = 1;
-	if(time > ret || x<0 || x>100000) return;
-	if(x == k){
-		if(time < ret){
-			ret = time;
-			method = 1;
-		}
-		else if(time == ret) method++;
-		return;
-	}
-	dfs(x-1, time+1);
-	dfs(x+1, time+1);
-	dfs(x*2, time+1);
-	
-	return;
-}
-
-int main(){
-	cin >> n >> k;
-	dfs(n,0);
-	cout << ret << "\n" << method;
+const int MAX = 200000; 
+int visited[MAX+4];
+long long cnt[MAX+4];
+int main() {
+    int n, m;
+    cin >> n >> m;
+    if(n == m){
+        puts("0"); puts("1");
+        return 0; 
+    } 
+    visited[n] = 1;
+    cnt[n] = 1;
+    queue<int> q;
+    q.push(n);
+    while (!q.empty()) {
+        int now = q.front();
+        q.pop();
+        for (int next : {now-1, now+1, now*2}) {
+            if (0 <= next && next <= MAX) { 
+                if (!visited[next]) {
+                    q.push(next); 
+                    visited[next] = visited[now] + 1;
+                    cnt[next] += cnt[now];
+                } else if (visited[next] == visited[now] + 1) {
+                    cnt[next] += cnt[now];
+                }
+            }
+        }
+    }
+    cout << visited[m] - 1 << '\n';
+    cout << cnt[m] << '\n';
+    return 0;
 }
