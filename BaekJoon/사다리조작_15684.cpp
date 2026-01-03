@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 const int INF = 987654321;
 int n, m, h, a, b, ret = INF, visited[34][34];
 bool check(){
@@ -13,6 +14,7 @@ bool check(){
     }
     return true;
 }
+
 void go(int here, int cnt){ 
     if(cnt > 3 || cnt >= ret) return;
     if(check()){
