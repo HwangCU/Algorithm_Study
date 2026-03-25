@@ -8,18 +8,19 @@ int main(){
 	string str;
 	cin >> str;
 	
-	string alpha[8] = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "ze"};
+	string alpha[8] = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
 	int ans = 0;
 	for(int i=0; i<str.length(); i++){
 		for(int j=0; j<8; j++){
 			int cnt = 0;
 			for(int k=0; k<alpha[j].length(); k++){
-				if(str[i+k] == alpha[j][k]){
+				if(str[i+k] == alpha[j][k]) {
 					cnt++;
 				}
-			}
+			
 			if(cnt == alpha[j].length()) {
 				i += alpha[j].length()-1;
+				}
 			}
 		}
 		ans++;
