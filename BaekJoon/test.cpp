@@ -1,9 +1,11 @@
 #include <iostream>
-
+#include <vector>
 using namespace std;
-char arr[10];
+
 int main(){
+	vector<int> v;
+	v.push_back(1);
 	
-	arr[0] = 1;
-	cout << arr[0];
+	cout << v.size();
+	return 0;
 }
